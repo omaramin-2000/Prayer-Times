@@ -1,4 +1,5 @@
 # Asking Home Assistant Assist for the prayer times... Islamic prayer times integration required: https://www.home-assistant.io/integrations/islamic_prayer_times
+# Add this to configuration.yaml
 
 intent_script:
   FajrPrayer:
