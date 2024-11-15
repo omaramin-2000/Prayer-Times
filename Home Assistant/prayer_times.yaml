@@ -1,0 +1,45 @@
+# /config/custom_sentences/en/prayer_times.yaml
+
+language: en
+intents:
+  FajrPrayer:
+    data:
+      - sentences:
+        - How much time [is] (left|remaining) (until|for) (Fajr|Fagr|Fager|Fadger) [prayer]
+        - (Fajr|Fajer|Fagr|Fager|Fadger) [time] [prayer] (left|remaining) [prayer] time
+
+  Sunrise:
+    data:
+      - sentences:
+        - How much time [is] (left|remaining) (until|for) Sunrise [prayer]
+        - Sunrise [time] (left|remaining) time
+
+  DhuhrPrayer:
+    data:
+      - sentences:
+        - How much time [is] (left|remaining) (until|for) (|Dhuhr|Duhr|Duhur|Dhur|Dhuhur|Duhour) [prayer]
+        - (|Dhuhr|Duhr|Duhur|Dhur|Dhuhur|Duhour) [time] [prayer] (left|remaining) [prayer] time
+
+  AsrPrayer:
+    data:
+      - sentences:
+        - How much time [is] (left|remaining) (until|for) (Asr|Aser|Asser|Asert|Assert|Acer|Aster|Assur) [prayer]
+        - (Asr|Aser|Asser|Asert|Assert|Acer|Aster|Assur) [time] [prayer] (left|remaining) [prayer] time
+
+  MaghribPrayer:
+    data:
+      - sentences:
+        - How much time [is] (left|remaining) until (Maghrib|Magrib|Magrid) [prayer]
+        - (Maghrib|Magrib|Magrid) [time] [prayer] (left|remaining) [prayer] time
+
+  IshaPrayer:
+    data:
+      - sentences:
+        - How much time [is] (left|remaining) (until|for) (Isha|Esha) [prayer]
+        - (Isha|Esha) [prayer] [time] (left|remaining) [prayer] time
+
+  Midnight:
+    data:
+      - sentences:
+        - How much time [is] (left|remaining) (until|for) Midnight [prayer]
+        - Midnight [time] (left|remaining) time
