@@ -1,4 +1,4 @@
-# /config/custom_sentences/en/prayer_times.yaml
+# Add this to path: /config/custom_sentences/en/prayer_times.yaml
 
 language: en
 intents:
@@ -43,3 +43,9 @@ intents:
       - sentences:
         - How much time [is] (left|remaining) (until|for) Midnight [prayer]
         - Midnight [time] (left|remaining) time
+
+  NextPrayer:
+    data:
+      - sentences:
+        - (What's|Whats|What is) [the] (next|upcoming) prayer [time]
+        - (next|upcoming) prayer [time]
