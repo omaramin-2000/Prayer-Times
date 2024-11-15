@@ -1,0 +1,208 @@
+# Asking Home Assistant Assist for the prayer times... Islamic prayer times integration required: https://www.home-assistant.io/integrations/islamic_prayer_times
+
+intent_script:
+  FajrPrayer:
+    speech:
+      text: "Fajr prayer is at {{ states('sensor.islamic_prayer_times_fajr_prayer', 'timestamp') [11:16]}}.
+{% set now = as_timestamp(now()) %}
+{% set fajr_time = as_timestamp(states('sensor.islamic_prayer_times_fajr_prayer', 'timestamp')) %}
+{% set remaining = ((fajr_time - now) / 60) | int %}
+{% set hours_remaining = remaining // 60 %}
+{% set minutes_remaining = remaining % 60 %}
+{% set passed = ((now - fajr_time) / 60) | int %}
+{% set hours_passed = passed // 60 %}
+{% set minutes_passed = passed % 60 %}
+{% if remaining > 0 %}
+{% if hours_remaining > 0 %}
+There are {{ hours_remaining }} hours and {{ minutes_remaining }} minutes remaining until Fajr.
+{% elif minutes_remaining == 1 %}
+There is 1 minute remaining until Fajr.
+{% else %}
+There are {{ minutes_remaining }} minutes remaining until Fajr.
+{% endif %}
+{% else %}
+{% if hours_passed > 0 %}
+There are {{ hours_passed }} hours and {{ minutes_passed }} minutes passed since Fajr.
+{% elif minutes_passed == 1 %}
+There is 1 minute passed since Fajr.
+{% else %}
+There are {{ minutes_passed }} minutes passed since Fajr.
+{% endif %}
+{% endif %}
+"
+  Sunrise:
+    speech:
+      text: "Sunrise time is at {{ states('sensor.islamic_prayer_times_sunrise_time', 'timestamp') [11:16]}}.
+{% set now = as_timestamp(now()) %}
+{% set sunrise_time = as_timestamp(states('sensor.islamic_prayer_times_sunrise_time', 'timestamp')) %}
+{% set remaining = ((sunrise_time - now) / 60) | int %}
+{% set hours_remaining = remaining // 60 %}
+{% set minutes_remaining = remaining % 60 %}
+{% set passed = ((now - sunrise_time) / 60) | int %}
+{% set hours_passed = passed // 60 %}
+{% set minutes_passed = passed % 60 %}
+{% if remaining > 0 %}
+Sunrise time is at {{ sunrise_time }}. 
+{% if hours_remaining > 0 %}
+There are {{ hours_remaining }} hours and {{ minutes_remaining }} minutes remaining until Sunrise.
+{% elif minutes_remaining == 1 %}
+There is 1 minute remaining until Sunrise.
+{% else %}
+There are {{ minutes_remaining }} minutes remaining until Sunrise.
+{% endif %}
+{% else %}
+{% if hours_passed > 0 %}
+There are {{ hours_passed }} hours and {{ minutes_passed }} minutes passed since Sunrise.
+{% elif minutes_passed == 1 %}
+There is 1 minute passed since Sunrise.
+{% else %}
+There are {{ minutes_passed }} minutes passed since Sunrise.
+{% endif %}
+{% endif %}
+"
+  DhuhrPrayer:
+    speech:
+      text: "Dhuhr prayer is at {{ states('sensor.islamic_prayer_times_dhuhr_prayer', 'timestamp') [11:16]}}.
+{% set now = as_timestamp(now()) %}
+{% set dhuhr_time = as_timestamp(states('sensor.islamic_prayer_times_dhuhr_prayer', 'timestamp')) %}
+{% set remaining = ((dhuhr_time - now) / 60) | int %}
+{% set hours_remaining = remaining // 60 %}
+{% set minutes_remaining = remaining % 60 %}
+{% set passed = ((now - dhuhr_time) / 60) | int %}
+{% set hours_passed = passed // 60 %}
+{% set minutes_passed = passed % 60 %}
+{% if remaining > 0 %}
+{% if hours_remaining > 0 %}
+There are {{ hours_remaining }} hours and {{ minutes_remaining }} minutes remaining until Dhuhr.
+{% elif minutes_remaining == 1 %}
+There is 1 minute remaining until Dhuhr.
+{% else %}
+There are {{ minutes_remaining }} minutes remaining until Dhuhr.
+{% endif %}
+{% else %}
+{% if hours_passed > 0 %}
+There are {{ hours_passed }} hours and {{ minutes_passed }} minutes passed since Dhuhr.
+{% elif minutes_passed == 1 %}
+There is 1 minute passed since Dhuhr.
+{% else %}
+There are {{ minutes_passed }} minutes passed since Dhuhr.
+{% endif %}
+{% endif %}
+"
+  AsrPrayer:
+    speech:
+      text: "
+        Asr prayer is at {{ states('sensor.islamic_prayer_times_asr_prayer', 'timestamp') [11:16]}}.
+{% set now = as_timestamp(now()) %}
+{% set asr_time = as_timestamp(states('sensor.islamic_prayer_times_asr_prayer', 'timestamp')) %}
+{% set remaining = ((asr_time - now) / 60) | int %}
+{% set hours_remaining = remaining // 60 %}
+{% set minutes_remaining = remaining % 60 %}
+{% set passed = ((now - asr_time) / 60) | int %}
+{% set hours_passed = passed // 60 %}
+{% set minutes_passed = passed % 60 %}
+{% if remaining > 0 %}
+{% if hours_remaining > 0 %}
+There are {{ hours_remaining }} hours and {{ minutes_remaining }} minutes remaining until Asr.
+{% elif minutes_remaining == 1 %}
+There is 1 minute remaining until Asr.
+{% else %}
+There are {{ minutes_remaining }} minutes remaining until Asr.
+{% endif %}
+{% else %}
+{% if hours_passed > 0 %}
+There are {{ hours_passed }} hours and {{ minutes_passed }} minutes passed since Asr.
+{% elif minutes_passed == 1 %}
+There is 1 minute passed since Asr.
+{% else %}
+There are {{ minutes_passed }} minutes passed since Asr.
+{% endif %}
+{% endif %}
+"
+  MaghribPrayer:
+    speech:
+      text: "Maghrib prayer is at {{ states('sensor.islamic_prayer_times_maghrib_prayer', 'timestamp') [11:16]}}.
+{% set now = as_timestamp(now()) %}
+{% set maghrib_time = as_timestamp(states('sensor.islamic_prayer_times_maghrib_prayer', 'timestamp')) %}
+{% set remaining = ((maghrib_time - now) / 60) | int %}
+{% set hours_remaining = remaining // 60 %}
+{% set minutes_remaining = remaining % 60 %}
+{% set passed = ((now - maghrib_time) / 60) | int %}
+{% set hours_passed = passed // 60 %}
+{% set minutes_passed = passed % 60 %}
+{% if remaining > 0 %}
+{% if hours_remaining > 0 %}
+There are {{ hours_remaining }} hours and {{ minutes_remaining }} minutes remaining until Maghrib.
+{% elif minutes_remaining == 1 %}
+There is 1 minute remaining until Maghrib.
+{% else %}
+There are {{ minutes_remaining }} minutes remaining until Maghrib.
+{% endif %}
+{% else %}
+{% if hours_passed > 0 %}
+There are {{ hours_passed }} hours and {{ minutes_passed }} minutes passed since Maghrib.
+{% elif minutes_passed == 1 %}
+There is 1 minute passed since Maghrib.
+{% else %}
+There are {{ minutes_passed }} minutes passed since Maghrib.
+{% endif %}
+{% endif %}
+"
+  IshaPrayer:
+    speech:
+      text: "Isha prayer is at {{ states('sensor.islamic_prayer_times_isha_prayer', 'timestamp') [11:16]}}.
+{% set now = as_timestamp(now()) %}
+{% set isha_time = as_timestamp(states('sensor.islamic_prayer_times_isha_prayer', 'timestamp')) %}
+{% set remaining = ((isha_time - now) / 60) | int %}
+{% set hours_remaining = remaining // 60 %}
+{% set minutes_remaining = remaining % 60 %}
+{% set passed = ((now - isha_time) / 60) | int %}
+{% set hours_passed = passed // 60 %}
+{% set minutes_passed = passed % 60 %}
+{% if remaining > 0 %}
+{% if hours_remaining > 0 %}
+There are {{ hours_remaining }} hours and {{ minutes_remaining }} minutes remaining until Isha.
+{% elif minutes_remaining == 1 %}
+There is 1 minute remaining until Isha.
+{% else %}
+There are {{ minutes_remaining }} minutes remaining until Isha.
+{% endif %}
+{% else %}
+{% if hours_passed > 0 %}
+There are {{ hours_passed }} hours and {{ minutes_passed }} minutes passed since Isha.
+{% elif minutes_passed == 1 %}
+There is 1 minute passed since Isha.
+{% else %}
+There are {{ minutes_passed }} minutes passed since Isha.
+{% endif %}
+{% endif %}
+"
+  Midnight:
+    speech:
+      text: "Midnight time is at {{ states('sensor.islamic_prayer_times_midnight_time', 'timestamp') [11:16]}}.
+{% set now = as_timestamp(now()) %}
+{% set midnight_time = as_timestamp(states('sensor.islamic_prayer_times_midnight_time', 'timestamp')) %}
+{% set remaining = ((midnight_time - now) / 60) | int %}
+{% set hours_remaining = remaining // 60 %}
+{% set minutes_remaining = remaining % 60 %}
+{% set passed = ((now - midnight_time) / 60) | int %}
+{% set hours_passed = passed // 60 %}
+{% set minutes_passed = passed % 60 %}
+{% if remaining > 0 %}
+{% if hours_remaining > 0 %}
+There are {{ hours_remaining }} hours and {{ minutes_remaining }} minutes remaining until Midnight.
+{% elif minutes_remaining == 1 %}
+There is 1 minute remaining until Midnight.
+{% else %}
+There are {{ minutes_remaining }} minutes remaining until Midnight.
+{% endif %}
+{% else %}
+{% if hours_passed > 0 %}
+There are {{ hours_passed }} hours and {{ minutes_passed }} minutes passed since Midnight.
+{% elif minutes_passed == 1 %}
+There is 1 minute passed since Midnight.
+{% else %}
+There are {{ minutes_passed }} minutes passed since Midnight.
+{% endif %}
+{% endif %}
+"
